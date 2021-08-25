@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 500;
+    text-decoration: none;
+    list-style: none;
+    color: #fff;
+}
+span{
+    color: #0000fe;
+    font-weight: 600;
+}
+/* styling the header and footer element */
+.header, .footer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background-color: #3c3c3c;
+}
+/* parent grid instructions */
+.container{
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 90px 1fr 50px;
+    /* calling the child elements name */
+    grid-template-areas: 
+        "sidenav header"
+        "sidenav main"
+        "sidenav footer";
+    height: 100vh;
+}
+
+/* child element grid name */
+.header{
+    grid-area: header;
+}
+.header input{
+    all: unset;
+    font: 16px system-ui;
+    color: #fff;
+    box-shadow: 0px 0px 20px #ccc inset;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 10px;
+    width: 500px;
+    padding: 5px;
+}
+.header input:hover{
+    box-shadow: 0px 0px 10px #222 inset;
+}
+.header input::placeholder{
+    color: #999;
+}
+.header .name{
+    font-size: 1.3em;
+    border: 2px solid #333;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #222;
+    cursor: pointer;
+}
+.header .name:hover{
+    box-shadow: 0px 0px 10px #222 inset;
+}
+.sidenav{
+    grid-area: sidenav;
+    background: #2c2c2c;
+    display: flex;
+    flex-direction: column;
+}
+.sidenav .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+}
+.sidenav .logo h1{
+    font-size: 2.5em;
+}
+.sidenav_list{
+    padding: 0;
+    list-style-type: none;
+}
+.sidenav_list-item{
+    padding: 20px 20px 20px 40px;
+}
+.sidenav_list-item:hover{
+    background-color: rgba(255,255,255,0.2);
+    cursor: pointer;
+}
+.sidenav_list-item:nth-child(1){
+    text-transform: uppercase;
+    font-size: 1.4em;
+    background: linear-gradient(#252525,#454545);
+    box-shadow: 0 0 10px #000 inset;
+    border-top-right-radius: 15px;
+}
+.sidenav_list-item:nth-child(1):hover{
+    background: linear-gradient(#454545,#252525);
+}
+.main{
+    grid-area: main;
+    background: #6c6c6c;
+}
+.main-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 15px;
+    height: 150px;
+}
+.main-section{
+    display: grid;
+    /* the grid-template-columns wrap the cards to another row if the width goes below 265px */
+    /* if the cards goes above 265px in width, they will stretch to take up available container width remaining */
+    grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
+    grid-auto-rows: 94px;
+    grid-gap: 20px;
+    margin: 20px;
+}
+.main-cards{
+    /* column-count splits the content inside the main-cards section into two */
+    column-count: 2;
+    /* column-gap adds a gap between the two cards */
+    column-gap: 20px;
+    margin: 20px;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #9c9c9c;
+    border-radius: 50px;
+    color: #000;
+    margin-bottom: 20px;
+    -webkit-column-break-inside: avoid;
+    padding: 24px;
+    box-sizing: border-box;
+}
+.card:first-child{
+    height: 420px;
+}
+.card:nth-child(2){
+    height: 200px;
+}
+.card:nth-child(3){
+    height: 200px;
+}
+.main-section-cards{
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #5c5c5c;
+    box-shadow: 0px 0px 50px #000 inset;
+}
+.footer{
+    grid-area: footer;
+}
